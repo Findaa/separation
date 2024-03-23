@@ -4,7 +4,7 @@ export workdir=~/work/AG/google-integrator
 
 . $workdir/deploy/log.sh
 
-external_ip=$(kubectl get svc -n istio-system cluster-gateway --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
+#external_ip=$(kubectl get svc -n istio-system cluster-gateway --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
 
 main() {
   inf "integrator] \n\n\n\t\t\t\t INSTALLING APP\t\t" "\n"
