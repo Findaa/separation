@@ -56,6 +56,9 @@ installPostgress() {
 }
 
 runApps() {
+  docker build -t localhost:5000/manager:latest -f $workdir/manager/Dockerfile .
+  docker build -t localhost:5000/reader:latest -f $workdir/reader/Dockerfile .
+
   kubectl apply -f $workdir/manager/manager.yaml
   kubectl apply -f $workdir/reader/reader.yaml
 }
