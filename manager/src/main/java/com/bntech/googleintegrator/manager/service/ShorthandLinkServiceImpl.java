@@ -27,11 +27,11 @@ public class ShorthandLinkServiceImpl implements ShorthandLinkService {
                 .limit(ID_LENGTH)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
-
         ShorthandLinkDto generatedLink = ShorthandLinkDto.builder()
                 .fullLink(requestBody.getRequest())
                 .shortLink(READER_URL + shorthandId)
                 .build();
+
         ShorthandLink newLink = repository.save(mapper.shorthandLinkDtoToShorthandLink(generatedLink));
 
         return mapper.shorthandLinkToShorthandLinkDto(newLink);
